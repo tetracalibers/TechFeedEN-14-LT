@@ -17,32 +17,32 @@ layout: center-content
 <ClipPathInset />
 
 <!--
-insetでは、要素の境界からの距離を指定することで、四角形に切り抜くことができます。
+insetでは、ボックスの端からの距離を指定することで、四角形に切り抜くことができます。
 
 距離の指定方法はpaddingやmarginと同様です。
-
-また、border-radiusと同様の記法で、roundキーワードの後に角を丸くする指定を加えることもできます。
 -->
 
 ---
-layout: center-content
+layout: image-main
+image: /slideAnimation_by_clip-path.png
 ---
 
-# `circle(<半径> at <中心点の位置>)`
-
-<ClipPathCircle />
+# insetでスライド方向とは逆方向に押し潰しておく
 
 <!--
-円や楕円を指定することもでき、うまく使えば波紋アニメーションを簡単に実現することができます。
+例えば、ボックス全体が見えなくなるように、100%のinsetを指定しておいて、inset(0)まで遷移させると、スライドアニメーションを実現することができます。
 -->
 
 ---
-layout: center-content
+layout: image-main
+image: /roundCornerAnimation_by_clip-path.png
 ---
 
-# `ellipse(<横の長さ> <縦の長さ> at <中心点の位置>)`
+# border-radius: X;の代わりにinset(0 round X);
 
-<ClipPathEllipse />
+<!--
+また、border-radiusと同様の記法で、roundキーワードの後に角を丸くする指定を加えることもできます。
+-->
 
 ---
 layout: center-two-cols
@@ -69,27 +69,10 @@ img {
 ```
 
 <!--
-polygonでは、頂点の座標を列挙することで、自由に多角形を定義することができます。
+polygonでは、頂点の座標を列挙することで、自由に多角形で切り抜くことができます。
 
-座標の原点は要素の左上の角です。
+座標の原点はボックスの左上の角です。
 -->
-
----
-layout: intro
----
-
-# clip-pathによるアニメーション
-
-<!--
-このようにclip-pathで形状を定義し、うまく変化させれば、背景や枠線のアニメーションはほぼclip-pathで実現することができます。
--->
-
----
-layout: image-main
-image: /slideAnimation_by_clip-path.png
----
-
-# insetでスライド方向とは逆方向に押し潰しておく
 
 ---
 layout: image-main
@@ -98,12 +81,33 @@ image: /radialFillAnimation_by_clip-path.png
 
 # polygonで点から塗りに遷移させる
 
+<!--
+全ての頂点に同じ座標を指定すると点になるので、そこからどんな図形にも変化させられます。
+-->
+
 ---
-layout: image-main
-image: /roundCornerAnimation_by_clip-path.png
+layout: center-content
 ---
 
-# border-radius: X;の代わりにinset(0 round X);
+# `circle(<半径> at <中心点の位置>)`
+
+<ClipPathCircle />
+
+<!--
+円で切り抜くこともでき、うまく使えば波紋アニメーションを簡単に実現することができます。
+-->
+
+---
+layout: center-content
+---
+
+# `ellipse(<横の長さ> <縦の長さ> at <中心点の位置>)`
+
+<ClipPathEllipse />
+
+<!--
+楕円も使えます。
+-->
 
 --- 
 layout: center-content
@@ -130,3 +134,7 @@ layout: center-content
 **フェードイン/アウト`opacity`**
 
 - `opacity`でやるしかない
+
+<!--
+とはいえ、transformやopacityが不要になるわけではなく、組み合わせることで表現の幅がグッと広がるのではないでしょうか。
+-->
