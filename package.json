@@ -1,0 +1,22 @@
+{
+  "name": "slide-css-animation-performance",
+  "private": true,
+  "scripts": {
+    "build": "slidev build",
+    "dev": "slidev --open",
+    "export:pdf": "slidev export",
+    "export:png": "node scripts/export-png.js"
+  },
+  "dependencies": {
+    "@slidev/cli": "^0.38.3",
+    "@slidev/theme-default": "*",
+    "@slidev/theme-seriph": "*",
+    "slidev-theme-flayyer": "^1.0.2",
+    "slidev-theme-light-icons": "^1.0.2",
+    "slidev-theme-penguin": "^1.6.1"
+  },
+  "devDependencies": {
+    "playwright-chromium": "^1.30.0",
+    "puppeteer": "^19.6.3"
+  }
+}
