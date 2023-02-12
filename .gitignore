@@ -9,4 +9,5 @@ components.d.ts
 _*.md
 *.log
 
-export-png
+export*
+!scripts/export*

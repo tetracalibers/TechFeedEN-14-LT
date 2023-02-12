@@ -16,6 +16,7 @@
     "slidev-theme-penguin": "^1.6.1"
   },
   "devDependencies": {
+    "pdf-lib": "^1.17.1",
     "playwright-chromium": "^1.30.0",
     "puppeteer": "^19.6.3"
   }
