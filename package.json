@@ -4,8 +4,9 @@
   "scripts": {
     "build": "slidev build",
     "dev": "slidev --open",
-    "export:pdf": "slidev export",
-    "export:png": "node scripts/export-png.js"
+    "export:pdf": "node scripts/export-pdf.js",
+    "export:png": "node scripts/export-png.js",
+    "export:draft": "node scripts/export-draft.js"
   },
   "dependencies": {
     "@slidev/cli": "^0.38.3",
