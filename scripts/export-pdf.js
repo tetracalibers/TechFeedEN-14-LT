@@ -1,7 +1,7 @@
-const puppeteer = require('puppeteer')
-const path = require('path')
-const fs = require('fs/promises')
-const pdflib = require('pdf-lib')
+const puppeteer = require("puppeteer")
+const path = require("path")
+const fs = require("fs/promises")
+const pdflib = require("pdf-lib")
 const { PDFDocument } = pdflib
 
 /**
@@ -15,18 +15,18 @@ const generateLoopSeed = (loopCount) => {
 
 ;(async () => {
   /** devサーバーで立ち上げたスライドのURL */
-  const SLIDE_URL = 'http://localhost:3030'
+  const SLIDE_URL = "http://localhost:3030"
   /** スライド表示要素のセレクタ。この要素だけをスクショする */
-  const CAPTURE_REGION_SELECTOR = '#slide-content'
+  const CAPTURE_REGION_SELECTOR = "#slide-content"
   /** 各スライド描画要素に付けられたクラス名。スライド数カウントに使う */
-  const PER_PAGE_SELECTOR = '.slidev-layout'
+  const PER_PAGE_SELECTOR = ".slidev-layout"
 
   /** ブラウザのインスタンス */
   const browser = await puppeteer.launch({ headless: true })
   /** ブラウザのタブのインスタンス */
   const page = await browser.newPage()
   /** Retinaに近い表示に設定 */
-  await page.setViewport({ width: 800, height: 800, deviceScaleFactor: 2 })
+  await page.setViewport({ width: 800, height: 800, deviceScaleFactor: 3 })
 
   /**
    * ページの表示が完了するまで待機する関数
@@ -72,7 +72,7 @@ const generateLoopSeed = (loopCount) => {
    * デバッグログを有効化する関数（※開発中のみ使用を推奨）
    */
   const debugOn = () => {
-    page.on('console', (msg) => console.log('PAGE LOG:', msg.text()))
+    page.on("console", (msg) => console.log("PAGE LOG:", msg.text()))
   }
 
   /**
@@ -88,26 +88,22 @@ const generateLoopSeed = (loopCount) => {
     const pdfDoc = await PDFDocument.create()
 
     for (const i of slides) {
-      console.log('rendering page: ', i)
+      console.log("rendering page: ", i)
       const clip = await getClipRegion(CAPTURE_REGION_SELECTOR)
-      const width = Math.round(clip.width)
-      const height = Math.round(clip.height)
-      const pngbuf = await page.screenshot({ clip })
-      const embedpng = await pdfDoc.embedPng(pngbuf)
-      const pdfpage = pdfDoc.addPage()
-      pdfpage.setSize(width, height)
-      pdfpage.drawImage(embedpng, { width, height, x: 0, y: 0 })
-      await page.goto(SLIDE_URL + '/' + (i + 1))
+      const [width, height] = [clip.width, clip.height].map((n) => Math.round(n))
+      const png = await page.screenshot({ clip }).then((buf) => pdfDoc.embedPng(buf))
+      const pdfpage = pdfDoc.addPage([width, height])
+      pdfpage.drawImage(png, { width, height, x: 0, y: 0 })
+      await page.goto(SLIDE_URL + "/" + (i + 1))
     }
 
     const pdfBytes = await pdfDoc.save()
-    await fs.writeFile(path.resolve(__dirname, '../export.pdf'), pdfBytes)
+    await fs.writeFile(path.resolve(__dirname, "../export.pdf"), pdfBytes)
   }
 
   /** 実行 */
   await slideExportPdf()
-
-  console.log('Completed export.')
+  console.log("Completed export.")
 
   /** ブラウザを閉じる */
   browser.close()
