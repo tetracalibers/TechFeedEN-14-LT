@@ -11,3 +11,5 @@ _*.md
 
 export*
 !scripts/export*
+
+*.pdf
