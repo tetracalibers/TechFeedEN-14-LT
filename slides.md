@@ -1,24 +1,21 @@
 ---
 theme: ./theme
-background: https://source.unsplash.com/collection/94734566/1920x1080
 class: text-center
 highlighter: shiki
 lineNumbers: false
 info: |
-  ## Slidev Starter Template
-  Presentation slides for developers.
-
-  Learn more at [Sli.dev](https://sli.dev)
+  ## CSS Animation <br />パフォーマンスを考える原理
+  
+  2023/03/01開催のTechFeed Experts Nightの登壇資料です。
+  
+  Author: tomixy（PixelGrid, Inc）
+  - [Biography](https://tetracalibers.notion.site/tomixy-s-Biography-ja-6dac9beded064e9b8458145050ededcb)
+  - [Twitter](https://twitter.com/tetracalibers)
+  - [Repository](https://github.com/tetracalibers/TechFeedEN-14-LT)
 drawings:
   persist: false
 css: unocss
-title: Welcome to Slidev
-#themeConfig:
-#  myLogo: /tomixy-transparent.png
-#  myName: tomixy
-#  myUrl: https://tetracalibers.notion.site/tomixy-s-Biography-ja-6dac9beded064e9b8458145050ededcb
-#  twitter: '@tetracalibers'
-#  twitterUrl: 'https://twitter.com/tetracalibers'
+title: CSS Animation パフォーマンスを考える原理
 src: ./pages/intro.md
 ---
 
