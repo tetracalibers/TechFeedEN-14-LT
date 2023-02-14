@@ -2,7 +2,7 @@
   "name": "slide-css-animation-performance",
   "private": true,
   "scripts": {
-    "build": "slidev build",
+    "build": "slidev build --base /TechFeedEN-14-LT",
     "dev": "slidev --open",
     "preview": "http-server ./dist -o",
     "export:pdf": "node scripts/export-pdf.js",
