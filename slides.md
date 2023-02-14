@@ -14,7 +14,6 @@ info: |
   - [Repository](https://github.com/tetracalibers/TechFeedEN-14-LT)
 drawings:
   persist: false
-css: unocss
 title: CSS Animation パフォーマンスを考える原理
 src: ./pages/intro.md
 ---
