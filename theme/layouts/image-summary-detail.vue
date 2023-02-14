@@ -9,7 +9,7 @@
         </div>
         <div class="_details"><slot name="default" /></div>
       </div>
-      <img :src="$attrs.media" :class="$attrs.no_shadow ? '' : 'shadow-lg'" />
+      <img :src="'/TechFeedEN-14-LT' + $attrs.media" :class="$attrs.no_shadow ? '' : 'shadow-lg'" />
     </div>
   </div>
 </template>

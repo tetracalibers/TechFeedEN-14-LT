@@ -3,7 +3,7 @@
     <CornerCurves class="absolute left-0 top-0 transform rotate-90" />
     <div class="_container">
       <slot />
-      <img :src="$attrs.image" />
+      <img :src="'/TechFeedEN-14-LT' + $attrs.image" />
     </div>
   </div>
 </template>
