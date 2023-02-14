@@ -1,6 +1,6 @@
-const puppeteer = require('puppeteer')
-const fs = require('fs/promises')
-const path = require('path')
+const puppeteer = require("puppeteer")
+const fs = require("fs/promises")
+const path = require("path")
 
 /**
  * ディレクトリが存在しなければ作成する関数
@@ -10,7 +10,7 @@ const mkdirIfNotExists = async (dirPath) => {
   try {
     await fs.mkdir(dirPath)
   } catch (error) {
-    console.log('the directory already exists, skip `mkdir`')
+    console.log("the directory already exists, skip `mkdir`")
   }
 }
 
@@ -25,13 +25,13 @@ const generateLoopSeed = (loopCount) => {
 
 ;(async () => {
   /** 生成したPNGを吐き出すディレクトリの絶対パス */
-  const DIST_DIR = path.resolve(__dirname, '../export-png')
+  const DIST_DIR = path.resolve(__dirname, "../export-png")
   /** devサーバーで立ち上げたスライドのURL */
-  const SLIDE_URL = 'http://localhost:3030'
+  const SLIDE_URL = "http://localhost:3030"
   /** スライド表示要素のセレクタ。この要素だけをスクショする */
-  const CAPTURE_REGION_SELECTOR = '#slide-content'
+  const CAPTURE_REGION_SELECTOR = "#slide-content"
   /** 各スライド描画要素に付けられたクラス名。スライド数カウントに使う */
-  const PER_PAGE_SELECTOR = '.slidev-layout'
+  const PER_PAGE_SELECTOR = ".slidev-layout"
 
   /** ブラウザのインスタンス */
   const browser = await puppeteer.launch({ headless: true })
@@ -60,7 +60,7 @@ const generateLoopSeed = (loopCount) => {
       return pages.length
     }, perPageSelector)
 
-    return generateLoopSeed(pageCount - 1)
+    return generateLoopSeed(pageCount - 2)
   }
 
   /**
@@ -84,7 +84,7 @@ const generateLoopSeed = (loopCount) => {
    * デバッグログを有効化する関数（※開発中のみ使用を推奨）
    */
   const debugOn = () => {
-    page.on('console', (msg) => console.log('PAGE LOG:', msg.text()))
+    page.on("console", (msg) => console.log("PAGE LOG:", msg.text()))
   }
 
   /**
@@ -102,9 +102,9 @@ const generateLoopSeed = (loopCount) => {
 
     for (const i of slides) {
       const clip = await getClipRegion(CAPTURE_REGION_SELECTOR)
-      const path = DIST_DIR + '/' + i + '.png'
+      const path = DIST_DIR + "/" + i + ".png"
       await page.screenshot({ clip, path })
-      await page.goto(SLIDE_URL + '/' + (i + 1))
+      await page.goto(SLIDE_URL + "/" + (i + 1))
     }
   }
 
