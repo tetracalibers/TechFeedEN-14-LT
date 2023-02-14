@@ -4,6 +4,7 @@
   "scripts": {
     "build": "slidev build",
     "dev": "slidev --open",
+    "preview": "http-server ./dist -o",
     "export:pdf": "node scripts/export-pdf.js",
     "export:png": "node scripts/export-png.js",
     "export:draft": "node scripts/export-draft.js"
@@ -17,6 +18,7 @@
     "slidev-theme-penguin": "^1.6.1"
   },
   "devDependencies": {
+    "http-server": "^14.1.1",
     "pdf-lib": "^1.17.1",
     "playwright-chromium": "^1.30.0",
     "puppeteer": "^19.6.3"
