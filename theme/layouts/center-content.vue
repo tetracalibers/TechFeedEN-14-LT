@@ -1,6 +1,6 @@
 <template>
-  <div class="slidev-layout center h-full grid place-content-center" :class="{ grid: $attrs.center }">
-    <CornerCurves class="absolute bottom-0 right-0 transform scale-x--100" />
+  <div class="slidev-layout _center-layout" :class="{ grid: $attrs.center }">
+    <CornerCurves class="_bg-svg" />
     <div class="my-auto z-10 relative flex flex-col _stack">
       <slot />
     </div>
@@ -8,6 +8,14 @@
 </template>
 
 <style scoped>
+  ._bg-svg {
+    @apply absolute bottom-0 right-0 w-full;
+    transform: scale(-1, 1);
+  }
+  ._center-layout {
+    @apply center h-full grid place-content-center;
+  }
+
   ._stack {
     gap: 0.25em;
   }

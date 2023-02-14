@@ -1,7 +1,7 @@
 <template>
   <div class="slidev-layout">
-    <CornerCurves class="absolute bottom-0 right-0 transform scale-x--100" />
-    <div class="_image-summary-detail grid grid-cols-2">
+    <CornerCurves class="_bg-svg" />
+    <div class="_image-summary-detail">
       <div class="_content">
         <div class="prose">
           <h1>{{ $attrs.heading }}</h1>
@@ -15,7 +15,12 @@
 </template>
 
 <style scoped>
+  ._bg-svg {
+    @apply absolute bottom-0 right-0 w-full;
+    transform: scale(-1, 1);
+  }
   ._image-summary-detail {
+    @apply grid grid-cols-2;
     width: 100%;
     height: 100%;
     gap: 1.5em;
