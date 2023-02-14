@@ -2,31 +2,31 @@
   <div class="CardLayout">
     <div class="Snippet">
       <div class="Card">
-        <img src="/TechFeedEN-14-LT/clip-path_sample-bg.jpg" />
+        <img src="/clip-path_sample-bg.jpg" />
       </div>
       <code>none</code>
     </div>
     <div class="Snippet">
       <div class="Card">
-        <img src="/TechFeedEN-14-LT/clip-path_sample-bg.jpg" class="pattern-1" />
+        <img src="/clip-path_sample-bg.jpg" class="pattern-1" />
       </div>
       <code>circle(4em at 50% 50%)</code>
     </div>
     <div class="Snippet">
       <div class="Card">
-        <img src="/TechFeedEN-14-LT/clip-path_sample-bg.jpg" class="pattern-2" />
+        <img src="/clip-path_sample-bg.jpg" class="pattern-2" />
       </div>
       <code>circle(4em at 0 0)</code>
     </div>
     <div class="Snippet">
       <div class="Card">
-        <img src="/TechFeedEN-14-LT/clip-path_sample-bg.jpg" class="pattern-3" />
+        <img src="/clip-path_sample-bg.jpg" class="pattern-3" />
       </div>
       <code>circle(4em at 4em 4em)</code>
     </div>
     <div class="Snippet">
       <div class="Card">
-        <img src="/TechFeedEN-14-LT/clip-path_sample-bg.jpg" class="pattern-4" />
+        <img src="/clip-path_sample-bg.jpg" class="pattern-4" />
       </div>
       <code>circle(4em at right bottom)</code>
     </div>

@@ -1,6 +1,6 @@
 <template>
   <div class="Card">
-    <img src="/TechFeedEN-14-LT/clip-path_sample-bg.jpg" class="pattern-1" />
+    <img src="/clip-path_sample-bg.jpg" class="pattern-1" />
   </div>
 </template>
 
