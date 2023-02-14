@@ -2,7 +2,7 @@
   <div class="CardLayout">
     <div class="Snippet">
       <div class="Card">
-        <img src="/TechFeedEN-14-LT/clip-path_sample-bg.jpg" />
+        <img src="/clip-path_sample-bg.jpg" />
       </div>
       <code>none</code>
     </div>
