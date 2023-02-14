@@ -15,7 +15,8 @@
     "@slidev/theme-seriph": "*",
     "slidev-theme-flayyer": "^1.0.2",
     "slidev-theme-light-icons": "^1.0.2",
-    "slidev-theme-penguin": "^1.6.1"
+    "slidev-theme-penguin": "^1.6.1",
+    "slidev-theme-original": "file:theme"
   },
   "devDependencies": {
     "http-server": "^14.1.1",

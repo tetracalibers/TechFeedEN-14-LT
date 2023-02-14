@@ -1,5 +1,5 @@
 ---
-theme: ./theme
+theme: slidev-theme-original
 class: text-center
 highlighter: shiki
 lineNumbers: false
