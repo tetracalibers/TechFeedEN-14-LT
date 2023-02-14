@@ -25,9 +25,9 @@ const generateLoopSeed = (loopCount) => {
 
 ;(async () => {
   /** 生成したPNGを吐き出すディレクトリの絶対パス */
-  const DIST_DIR = path.resolve(__dirname, "../export-png")
+  const DIST_DIR = path.resolve(__dirname, "../export/png")
   /** devサーバーで立ち上げたスライドのURL */
-  const SLIDE_URL = "http://localhost:3030"
+  const SLIDE_URL = "http://localhost:3030/TechFeedEN-14-LT"
   /** スライド表示要素のセレクタ。この要素だけをスクショする */
   const CAPTURE_REGION_SELECTOR = "#slide-content"
   /** 各スライド描画要素に付けられたクラス名。スライド数カウントに使う */
@@ -101,6 +101,7 @@ const generateLoopSeed = (loopCount) => {
     const slides = await countPagesSPA(PER_PAGE_SELECTOR)
 
     for (const i of slides) {
+      console.log("rendering page: ", i)
       const clip = await getClipRegion(CAPTURE_REGION_SELECTOR)
       const path = DIST_DIR + "/" + i + ".png"
       await page.screenshot({ clip, path })
@@ -110,6 +111,7 @@ const generateLoopSeed = (loopCount) => {
 
   /** 実行 */
   await slideExportPng()
+  console.log("Completed export.")
 
   /** ブラウザを閉じる */
   browser.close()

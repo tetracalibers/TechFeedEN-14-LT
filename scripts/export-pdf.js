@@ -5,6 +5,18 @@ const pdflib = require("pdf-lib")
 const { PDFDocument } = pdflib
 
 /**
+ * ディレクトリが存在しなければ作成する関数
+ * @param {string} dirPath 作成したいディレクトリの絶対パス
+ */
+const mkdirIfNotExists = async (dirPath) => {
+  try {
+    await fs.mkdir(dirPath)
+  } catch (error) {
+    console.log("the directory already exists, skip `mkdir`")
+  }
+}
+
+/**
  * for-of文での繰り返し回数カウント用に、1 ~ loopCount + 1 の数列を詰めた配列を作る関数
  * @param {number} loopCount
  * @return カウント用の配列（例： loopCountが4なら、 [1, 2, 3, 4, 5]）
@@ -15,7 +27,7 @@ const generateLoopSeed = (loopCount) => {
 
 ;(async () => {
   /** devサーバーで立ち上げたスライドのURL */
-  const SLIDE_URL = "http://localhost:3030"
+  const SLIDE_URL = "http://localhost:3030/TechFeedEN-14-LT"
   /** スライド表示要素のセレクタ。この要素だけをスクショする */
   const CAPTURE_REGION_SELECTOR = "#slide-content"
   /** 各スライド描画要素に付けられたクラス名。スライド数カウントに使う */
@@ -97,8 +109,11 @@ const generateLoopSeed = (loopCount) => {
       await page.goto(SLIDE_URL + "/" + (i + 1))
     }
 
+    const dist = path.resolve(__dirname, "../export")
+    await mkdirIfNotExists(dist)
+    const now = Date.now()
     const pdfBytes = await pdfDoc.save()
-    await fs.writeFile(path.resolve(__dirname, "../export.pdf"), pdfBytes)
+    await fs.writeFile(path.join(dist, "slide-" + now + ".pdf"), pdfBytes)
   }
 
   /** 実行 */

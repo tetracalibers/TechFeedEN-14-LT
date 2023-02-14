@@ -1,9 +1,21 @@
 const puppeteer = require("puppeteer")
 const path = require("path")
 
+/**
+ * ディレクトリが存在しなければ作成する関数
+ * @param {string} dirPath 作成したいディレクトリの絶対パス
+ */
+const mkdirIfNotExists = async (dirPath) => {
+  try {
+    await fs.mkdir(dirPath)
+  } catch (error) {
+    console.log("the directory already exists, skip `mkdir`")
+  }
+}
+
 ;(async () => {
   /** devサーバーで立ち上げたスライドのURL */
-  const TARGET_URL = "http://localhost:3030/presenter/print"
+  const TARGET_URL = "http://localhost:3030/TechFeedEN-14-LT/presenter/print"
   const MAIN_CONTENT_SELECTOR = "#page-root"
 
   /** ブラウザのインスタンス */
@@ -23,7 +35,12 @@ const path = require("path")
   await page.goto(TARGET_URL)
   await waitRender()
 
-  await page.pdf({ path: path.resolve(__dirname, "../draft.pdf") })
+  const dist = path.resolve(__dirname, "../export")
+  await mkdirIfNotExists(dist)
+  const now = Date.now()
+
+  await page.pdf({ path: path.join(dist, "draft-" + now + ".pdf") })
+  console.log("Completed export.")
 
   /** ブラウザを閉じる */
   browser.close()
