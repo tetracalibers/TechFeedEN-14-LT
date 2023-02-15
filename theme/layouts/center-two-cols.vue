@@ -1,6 +1,6 @@
 <template>
   <div class="slidev-layout center h-full grid _stack">
-    <CornerCurves class="absolute bottom-0 right-0 transform scale-x--100" />
+    <CornerCurves class="_bg-svg" />
     <h1><slot name="title" /></h1>
     <div class="grid grid-cols-2 gap-16 place-content-center">
       <div class="_col-item">
@@ -14,6 +14,10 @@
 </template>
 
 <style scoped>
+  ._bg-svg {
+    @apply absolute bottom-0 right-0 w-full;
+    transform: scale(-1, 1);
+  }
   ._stack > h1 {
     margin: 0;
   }
@@ -28,6 +32,7 @@
   
   ::v-deep(pre) {
     overflow: auto !important;
+    line-height: 1.5;
   }
   
   ._col-item {
