@@ -6,11 +6,13 @@ index.html
 .remote-assets
 components.d.ts
 
-_*.md
-_*.js
 *.log
 
 export*
 !scripts/export*
 
 *.pdf
+
+extensions
+data
+_*
