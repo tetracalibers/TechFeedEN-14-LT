@@ -15,11 +15,10 @@
     "@slidev/theme-seriph": "*",
     "slidev-theme-flayyer": "^1.0.2",
     "slidev-theme-light-icons": "^1.0.2",
-    "slidev-theme-original": "file:theme",
-    "slidev-theme-penguin": "^1.6.1"
+    "slidev-theme-penguin": "^1.6.1",
+    "slidev-theme-original": "file:theme"
   },
   "devDependencies": {
-    "JSONStream": "^1.3.5",
     "http-server": "^14.1.1",
     "pdf-lib": "^1.17.1",
     "playwright-chromium": "^1.30.0",
