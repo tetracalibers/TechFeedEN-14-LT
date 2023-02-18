@@ -61,9 +61,13 @@ table td {
   border-bottom: solid 1px #778ca3;
 }
 table td:first-child {
-  text-align: left;
   color: #778ca3;
   font-weight: 600;
+  text-align: left;
+}
+table td:not(:first-child) {
+  font-family: monospace;
+  text-align: right;
 }
 ._root {
   width: max-content;
