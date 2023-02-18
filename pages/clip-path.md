@@ -58,7 +58,7 @@ image: /roundCornerAnimation_by_clip-path.png
 # border-radius: X;の代わりにinset(0 round X);
 
 <!--
-また、border-radiusと同様の記法で、roundキーワードの後に角を丸くする指定を加えることもできます。
+また、insetでは、border-radiusと同様の記法で、roundキーワードの後に角を丸くする指定を加えることもできます。
 -->
 
 ---
