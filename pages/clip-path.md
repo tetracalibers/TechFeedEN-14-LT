@@ -34,6 +34,23 @@ image: /slideAnimation_by_clip-path.png
 -->
 
 ---
+layout: center-content
+---
+
+# スライドアニメーション（今はclip-pathは重め）
+
+<CompareAnimation :data="[
+  { condition: 'width', layout: 3272, paint: 10563, composite: 3306 }, 
+  { condition: 'clip-path', layout: 0, paint: 12127, composite: 2579 },
+  { condition: 'background-position', layout: 0, paint: 5601, composite: 1768 },
+  { condition: 'transform', layout: 0, paint: 0, composite: 1251 }
+]" />
+
+<!--
+とはいえ、現状、clip-pathはPaint処理が重めなので、今後に期待ですね。
+-->
+
+---
 layout: image-main
 image: /roundCornerAnimation_by_clip-path.png
 ---
