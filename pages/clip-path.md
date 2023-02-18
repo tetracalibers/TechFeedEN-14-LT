@@ -45,6 +45,25 @@ image: /roundCornerAnimation_by_clip-path.png
 -->
 
 ---
+layout: center-content
+---
+
+# filter:blurアニメーションと角丸
+
+<CompareAnimation :data="[
+  { condition: 'blur(2px) + border-radius', layout: 0, paint: 701, composite: 4896 }, 
+  { condition: 'blur(10px)', layout: 0, paint: 166, composite: 1926 },
+  { condition: 'blur(2px) + clip-path角丸', layout: 0, paint: 163, composite: 1511 },
+  { condition: 'blur(2px)', layout: 0, paint: 166, composite: 1310 }
+]" />
+
+<!--
+例えば、filterプロパティによるぼかしと併用する際は、border-radiusよりもclip-pathで角丸を表現した方が、圧倒的にパフォーマンスが良くなります。
+
+このとき、border-radiusはぼかし範囲がボーダーの外側まで及びますが、clip-pathによる角丸では、要素外に滲みがはみ出すことはありません。
+-->
+
+---
 layout: center-two-cols
 ---
 
