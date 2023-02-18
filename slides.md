@@ -51,6 +51,18 @@ src: ./pages/hardware-acceleration.md
 ---
 
 ---
+src: ./pages/compare-move-animation.md
+---
+
+---
+src: ./pages/layer-memory-and-bug.md
+---
+
+---
+src: ./pages/gpu-feature-property.md
+---
+
+---
 src: ./pages/clip-path.md
 ---
 
