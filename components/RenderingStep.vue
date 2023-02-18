@@ -17,7 +17,7 @@
   </div>
 </template>
 
-<style>
+<style scoped>
 ._steps-container {
   display: flex;
   translate: 0 -70%;
