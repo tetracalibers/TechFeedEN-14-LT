@@ -38,6 +38,10 @@ html:not(.dark) #slide-content {
   a {
     @apply text-secondary-400 hover:text-secondary-500 dark:text-gray-50 dark:hover:text-secondary-500 transition ease-in-out duration-300;
   }
+  
+  a::after {
+    content: url('https://api.iconify.design/pixelarticons/external-link.svg');
+  }
 
   .prose > ul {
     list-style: none;
