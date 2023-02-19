@@ -37,7 +37,15 @@ const props = defineProps<Props>()
         </template>
       </tbody>
     </table>
-    <p class="_unit-caption">単位はすべてμs</p>
+    <div class="_footer">
+      <a
+        class="_repo-link"
+        href="https://github.com/tetracalibers/parse-chrome-performance-profile"
+      >
+        解析スクリプトRepository
+      </a>
+      <p class="_unit-caption">単位はすべてμs</p>
+    </div>
   </div>
 </template>
 
@@ -72,7 +80,18 @@ table td:not(:first-child) {
 ._root {
   width: max-content;
 }
+._footer {
+  display: flex;
+  justify-content: space-between;
+  padding: 0.5rem 0;
+}
+._repo-link {
+  font-size: 0.8em;
+  border: 0;
+  opacity: 0.6;
+}
 ._unit-caption {
   text-align: right !important;
+  margin: 0 !important;
 }
 </style>
