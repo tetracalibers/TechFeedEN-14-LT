@@ -45,7 +45,7 @@
   }
   
   ._image {
-    justify-self: end;
+    justify-self: flex-end;
     height: 90%;
     align-self: center;
   }
@@ -53,5 +53,6 @@
   ._image img {
     max-height: 100%;
     object-fit: contain;
+    object-position: right center;
   }
 </style>
