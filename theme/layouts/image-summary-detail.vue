@@ -45,8 +45,9 @@
   }
   
   ._image {
-    justify-self: flex-end;
+    justify-self: end;
     height: 90%;
+    width: fit-content;
     align-self: center;
   }
   
