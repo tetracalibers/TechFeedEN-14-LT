@@ -9,7 +9,9 @@
         </div>
         <div class="_details"><slot name="default" /></div>
       </div>
-      <img :src="'/TechFeedEN-14-LT' + $attrs.media" :class="$attrs.no_shadow ? '' : 'shadow-lg'" />
+      <div class="_image">
+        <img :src="'/TechFeedEN-14-LT' + $attrs.media" :class="$attrs.no_shadow ? '' : 'shadow-lg'" />
+      </div>
     </div>
   </div>
 </template>
@@ -26,25 +28,30 @@
     gap: 1.5em;
     position: relative;
     z-index: 10;
+    justify-content: stretch;
   }
   ._details {
     font-size: 0.9em;
   }
   ._content {
     width: 100%;
-    display: grid;
-    height: 100%;
-    align-content: space-evenly;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
   }
   
   .prose > h1 {
     margin: 0;
   }
   
-  ._image-summary-detail img {
-    height: 90%;
-    width: auto;
+  ._image {
     justify-self: end;
+    height: 90%;
     align-self: center;
+  }
+  
+  ._image img {
+    max-height: 100%;
+    object-fit: contain;
   }
 </style>
