@@ -70,9 +70,9 @@ layout: center-content
 # filter:blurアニメーションと角丸
 
 <CompareAnimation :data="[
-  { condition: 'blur(2px) + border-radius', layout: 0, paint: 701, composite: 4896 }, 
+  { condition: 'blur(2px) + border-radius', layout: 0, paint: 701, composite: 4896, highlight: ['total'] }, 
   { condition: 'blur(10px)', layout: 0, paint: 166, composite: 1926 },
-  { condition: 'blur(2px) + clip-path角丸', layout: 0, paint: 163, composite: 1511 },
+  { condition: 'blur(2px) + clip-path角丸', layout: 0, paint: 163, composite: 1511, highlight: ['total'] },
   { condition: 'blur(2px)', layout: 0, paint: 166, composite: 1310 }
 ]" />
 
