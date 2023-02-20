@@ -1,9 +1,12 @@
 <script setup lang="ts">
+type ColumnKey = "layout" | "paint" | "composite" | "total"
+
 interface Measured {
   condition: string
   layout: number
   paint: number
   composite: number
+  highlight?: ColumnKey[]
 }
 
 interface Props {
@@ -11,10 +14,15 @@ interface Props {
 }
 
 const props = defineProps<Props>()
+
+const isHighlight = (record: Measured, key: ColumnKey) => {
+  return record.highlight?.includes(key)
+}
 </script>
 
 <template>
   <div class="_root">
+    <p class="_title-caption">アニメーション中に発生した再レンダリング時間の合計</p>
     <table>
       <thead>
         <tr>
@@ -29,10 +37,22 @@ const props = defineProps<Props>()
         <template v-for="record in props.data">
           <tr>
             <td>{{ record.condition }}</td>
-            <td>{{ record.layout }}</td>
-            <td>{{ record.paint }}</td>
-            <td>{{ record.composite }}</td>
-            <td>{{ record.layout + record.paint + record.composite }}</td>
+            <td>
+              <span :class="{ highlight: isHighlight(record, 'layout') }">{{ record.layout }}</span>
+            </td>
+            <td>
+              <span :class="{ highlight: isHighlight(record, 'paint') }">{{ record.paint }}</span>
+            </td>
+            <td>
+              <span :class="{ highlight: isHighlight(record, 'composite') }">{{
+                record.composite
+              }}</span>
+            </td>
+            <td>
+              <span :class="{ highlight: isHighlight(record, 'total') }">
+                {{ record.layout + record.paint + record.composite }}
+              </span>
+            </td>
           </tr>
         </template>
       </tbody>
@@ -77,6 +97,23 @@ table td:not(:first-child) {
   font-family: monospace;
   text-align: right;
 }
+.highlight {
+  position: relative;
+  padding: 0 0.5em;
+  margin: 0 -0.5em;
+}
+.highlight::before {
+  --transparent: rgba(255, 255, 255, 0);
+  content: "";
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0%;
+  left: 0;
+  background: linear-gradient(45deg, var(--transparent) 0%, yellow 0% 40%, var(--transparent) 100%);
+  z-index: -1;
+  transform: skewX(10deg);
+}
 ._root {
   width: max-content;
 }
@@ -88,10 +125,13 @@ table td:not(:first-child) {
 ._repo-link {
   font-size: 0.8em;
   border: 0;
-  opacity: 0.6;
+  opacity: 0.8;
 }
 ._unit-caption {
   text-align: right !important;
   margin: 0 !important;
+}
+._title-caption {
+  font-size: 1rem !important;
 }
 </style>

@@ -31,7 +31,7 @@ layout: center-content
   { condition: 'box-shadow + border-radius', layout: 0, paint: 5669, composite: 1652 }, 
   { condition: 'box-shadow（ぼかし7px）', layout: 0, paint: 4536, composite: 2102 },
   { condition: 'box-shadow（ぼかし0px）', layout: 0, paint: 4290, composite: 1848 },
-  { condition: 'opacity', layout: 0, paint: 148, composite: 640 }
+  { condition: 'opacity', layout: 0, paint: 148, composite: 640, highlight: ['total'] }
 ]" />
 
 <!--

@@ -43,7 +43,7 @@ layout: center-content
 
 <CompareAnimation :data="[
   { condition: 'width', layout: 3272, paint: 10563, composite: 3306 }, 
-  { condition: 'clip-path', layout: 0, paint: 12127, composite: 2579 },
+  { condition: 'clip-path', layout: 0, paint: 12127, composite: 2579, highlight: ['paint'] },
   { condition: 'background-position', layout: 0, paint: 5601, composite: 1768 },
   { condition: 'transform', layout: 0, paint: 0, composite: 1251 }
 ]" />
