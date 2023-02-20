@@ -28,6 +28,4 @@ While the current CSS properties that are hardware-accelerated by default only i
 さて、現時点では、opacityとtransformだけでアニメーションを実装することが推奨されていますが、Chromiumは近い将来、新たにbackground-colorとclip-pathもハードウェアアクセラレーションの対象に追加するという声明を出しています。
 
 background-colorはtransform, opacityに次いでアニメーションでよく使われているプロパティで、clip-pathはアニメーションの幅をグッと広げるものです。
-
-最後に、clip-pathによるアニメーション実装の考え方を簡単に紹介したいと思います。
 -->
