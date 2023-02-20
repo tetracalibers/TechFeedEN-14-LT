@@ -49,7 +49,7 @@ layout: center-content
 ]" />
 
 <!--
-とはいえ、現状、clip-pathはPaint処理が重めなので、今後に期待ですね。
+とはいえ、現状、clip-pathはPaint処理が重めなので、今後に期待しましょう。
 -->
 
 ---
