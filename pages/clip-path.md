@@ -78,8 +78,21 @@ layout: center-content
 
 <!--
 例えば、filterプロパティによるぼかしと併用する際は、border-radiusよりもclip-pathで角丸を表現した方が、圧倒的にパフォーマンスが良くなります。
+-->
 
-このとき、border-radiusはぼかし範囲がボーダーの外側まで及びますが、clip-pathによる角丸では、要素外に滲みがはみ出すことはありません。
+---
+layout: center-content
+---
+
+# 補足：border-radiusとclip-pathの違い
+
+<CompareImage
+  :left="{ src: 'blur-round-by-border-radius.png', title: 'border-radius' }"
+  :right="{ src: 'blur-round-by-clip-path.png', title: 'clip-path' }"
+/>
+
+<!--
+ちなみにこのとき、border-radiusはぼかし範囲がボーダーの外側まで及びますが、clip-pathによる角丸では、要素外に滲みがはみ出すことはありません。
 -->
 
 ---
